@@ -3,8 +3,7 @@
 # Needs emcc on PATH. Output goes to ./_site
 set -euo pipefail
 ROOT="$(pwd)"
-z=$(ls herobrine*.zip 2>/dev/null | sort -V | tail -1); if [ -n "$z" ]; then cp "$z" mod.zip; fi
-
+rm -rf mod; if [ -f herobrine-v6-test.zip ]; then cp herobrine-v6-test.zip mod.zip; echo "USING MOD ZIP: herobrine-v6-test.zip"; else echo "::error::herobrine-v6-test.zip is missing"; exit 1; fi
 echo "== 1/4 Unpacking web-build.zip"
 rm -rf game
 python3 - <<'PY'
