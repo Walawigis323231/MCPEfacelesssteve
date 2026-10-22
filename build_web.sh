@@ -3,8 +3,7 @@
 # Needs emcc on PATH. Output goes to ./_site
 set -euo pipefail
 ROOT="$(pwd)"
-ROOT="$(pwd)"
-if [ -f herobrine-v4-NEW.zip ]; then cp herobrine-v4-NEW.zip mod.zip; fi
+z=$(ls herobrine*.zip 2>/dev/null | sort -V | tail -1); if [ -n "$z" ]; then cp "$z" mod.zip; fi
 
 echo "== 1/4 Unpacking web-build.zip"
 rm -rf game
