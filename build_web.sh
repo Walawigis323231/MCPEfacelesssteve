@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
-# Builds the MCPE 0.6.1 web game from web-build.zip, with everything in ./mod copied on top.
+# Builds the MCPE 0.6.1 web game from web-build.zip, with everything in mod.zip (Faceless Steve) copied on top.
 # Needs emcc on PATH. Output goes to ./_site
 set -euo pipefail
 ROOT="$(pwd)"
-rm -rf mod; if [ -f herobrine-v6-test.zip ]; then cp herobrine-v6-test.zip mod.zip; echo "USING MOD ZIP: herobrine-v6-test.zip"; else echo "::error::herobrine-v6-test.zip is missing"; exit 1; fi
+rm -rf mod; if [ -f mod.zip ]; then echo "USING MOD ZIP: mod.zip"; else echo "::error::mod.zip is missing"; exit 1; fi
 echo "== 1/4 Unpacking web-build.zip"
 rm -rf game
 python3 - <<'PY'
